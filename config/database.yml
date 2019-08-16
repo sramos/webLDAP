@@ -1,0 +1,24 @@
+default: &default
+  adapter: mysql2 
+  encoding: utf8
+  database: webldap 
+  username: webldap 
+  password: webldap 
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  host: <%= ENV['DB_HOST'] %>
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USER'] %> 
+  password: <%= ENV['DB_PASS'] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
