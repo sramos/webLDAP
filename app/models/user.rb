@@ -26,4 +26,12 @@ class User < ApplicationRecord
     end
   end
 
+  def is_global_admin?
+    LdapRecord.is_admin?(self.ldap_dn)
+  end
+
+  def is_domain_admin? domain_dn
+    LdapRecord.is_admin?(self.ldap_dn, domain_dn)
+  end
+
 end

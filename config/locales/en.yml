@@ -49,3 +49,8 @@ en:
       passwords_dont_match: "Passwords don't match"
   menu:
     home: Home
+    home-title: webLDAP homepage
+    password: Password
+    password-title: Change your password
+    domains: Domains
+    domains-title: Domains management

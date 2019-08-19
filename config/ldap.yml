@@ -3,7 +3,7 @@
 # You can also just copy and paste the tree (do not include the "authorizations") to each
 # environment if you need something different per environment.
 authorizations: &AUTHORIZATIONS
-  allow_unauthenticated_bind: false 
+  allow_unauthenticated_bind: false
   require_attribute:
     objectClass: inetOrgPerson
     serviceName: webLDAP
@@ -11,13 +11,13 @@ authorizations: &AUTHORIZATIONS
 ## Environment
 
 development:
-  host: 172.31.22.110 
-  port: 389
-  attribute: mail 
-  base: ou=domains,dc=sitiodistinto,dc=net
-  admin_user: cn=admin,dc=sitiodistinto,dc=net
-  admin_password: adminpass 
-  ssl: false
+  host: <%= ENV['LDAP_HOST']||'172.31.22.110' %>
+  port: <%= ENV['LDAP_HOST']||'389' %>
+  attribute: <%= ENV['LDAP_ATTRIB_LOGIN']||'mail' %>
+  base: <%= ENV['LDAP_DN_BASE']||'dc=sitiodistinto,dc=net' %>
+  admin_user: <%= ENV['LDAP_ADMIN']||'cn=admin,dc=sitiodistinto,dc=net' %>
+  admin_password: <%= ENV['LDAP_PASS']||'adminpassword' %>
+  ssl: <%= ENV['LDAP_SSL']||'false' %>
   # <<: *AUTHORIZATIONS
 
 test:
@@ -31,11 +31,11 @@ test:
   # <<: *AUTHORIZATIONS
 
 production:
-  host: <%= ENV['LDAP_HOST'] %> 
-  port: <%= ENV['LDAP_PORT'] %> 
-  attribute: <%= ENV['LDAP_ATTRIB_LOGIN'] %> 
-  base: <%= ENV['LDAP_DN_BASE'] %> 
-  admin_user: <%= ENV['LDAP_ADMIN'] %> 
+  host: <%= ENV['LDAP_HOST'] %>
+  port: <%= ENV['LDAP_PORT'] %>
+  attribute: <%= ENV['LDAP_ATTRIB_LOGIN'] %>
+  base: <%= ENV['LDAP_DN_BASE'] %>
+  admin_user: <%= ENV['LDAP_ADMIN'] %>
   admin_password: <%= ENV['LDAP_PASS'] %>
-  ssl: <%= ENV['LDAP_SSL'] %> 
+  ssl: <%= ENV['LDAP_SSL'] %>
   # <<: *AUTHORIZATIONS
