@@ -2,7 +2,7 @@ require 'active_ldap'
 ldap_config = YAML.load(ERB.new(File.read("#{Rails.root}/config/ldap.yml")).result(binding))[Rails.env]
 
 if ldap_config['host'] && ldap_config['base']
-  options = { host: ldap_config['host'], base: ldap_config[:base],
+  options = { host: ldap_config['host'], base: ldap_config['base'],
               allow_anonymous: false, try_sasl: false }
 end
 
