@@ -31,9 +31,14 @@
 
 en:
   hello: "Hello world"
+  actions:
+    home: Home
+    home-title: webLDAP homepage
+    logout: Logout
+    password: Password
+    password-title: Change your password
   devise:
     email: "Email address"
-    logout: "Logout"
     password: "Password"
     password_change: "Change your password"
     password_change-action: "Change password"
@@ -43,14 +48,16 @@ en:
     remember: "Remember me"
     signin: "Please, sign in"
     signin-action: "Sign in"
+  domains:
+    actions:
+      delete: "Delete domain %s"
+      edit: "Edit domain %s"
+      new: New domain
+      show: "Show domain %s"
+    mail-redirected-to: "Mail redirected to %s"
+    menu: Domains
+    menu-title: Domains management
   errors:
     user:
       password_invalid: "Password invalid"
       passwords_dont_match: "Passwords don't match"
-  menu:
-    home: Home
-    home-title: webLDAP homepage
-    password: Password
-    password-title: Change your password
-    domains: Domains
-    domains-title: Domains management

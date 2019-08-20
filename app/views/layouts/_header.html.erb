@@ -9,9 +9,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <% menu_options = [ {text: t('menu.home'), title: t('menu.home-title'), url: root_path},
-                            {text: t('menu.password'), title: t('menu.password-title'), url: change_password_path},
-                            {text: t('menu.domains'), title: t('menu.domains-title'), url: domains_path} ] %>
+        <% menu_options = [ {text: t('domains.menu'), title: t('domains.menu-title'), url: domains_path} ] %>
         <ul class="navbar-nav mr-auto">
           <% menu_options.each do |menu_item| %>
             <li class="nav-item">
@@ -19,8 +17,9 @@
             </li>
           <% end %>
         </ul>
-        <div class="my-2 my-lg-0">
-          <%= link_to icon('fa', 'sign-out-alt', current_user.name), destroy_user_session_path, title: t("devise.logout"), method: :delete, class: "nav-link" %>
+        <div class="navbar-nav my-lg-0">
+          <%= link_to current_user.name, change_password_path, title: t('actions.password-title'), class: "nav-link" %>
+          <%= link_to icon('fa', 'sign-out-alt'), destroy_user_session_path, title: t('actions.logout'), method: :delete, class: "nav-link" %>
         </li>
       </div>
     </nav>

@@ -4,8 +4,9 @@ class DomainsController < ApplicationController
     @domains = []
     # If current user is global admin, get all domains
     Domain.all.each do |domain|
-      is_admin = current_user.is_global_admin? || current_user.is_domain_admin?(domain.dn.to_s)
-      @domains.push domain if is_admin
+      if current_user.is_global_admin? || current_user.is_domain_admin?(domain.dn.to_s)
+        @domains.push domain
+      end
     end
   end
 

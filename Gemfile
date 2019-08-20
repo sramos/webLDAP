@@ -24,6 +24,7 @@ gem 'devise_ldap_authenticatable'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.3.1'
 gem 'font-awesome-sass', '~> 5.9.0'
+gem 'jquery-datatables'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

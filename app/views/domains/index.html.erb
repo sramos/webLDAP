@@ -1,5 +1,36 @@
-<ul>
-  <% @domains.each do |domain| %>
-    <li><%= domain.o %></li>
-  <% end %>
-</ul>
+<% if @domains.any? %>
+  <table id="domain-table" class="table table-hover">
+    <thead>
+      <tr>
+        <th>Domain</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+      <tbody>
+        <% @domains.each do |domain| %>
+          <tr>
+            <td>
+              <a href="<%= domain_path(domain.o) %>" title="<%= t('domains.actions.show')%[domain.o] %>">
+                <%= domain.o %>
+                <% if domain.o != domain.associatedDomain %>
+                  <%= icon('fa', 'share', title: t('domains.mail-redirected-to')%[domain.associatedDomain]) %>
+                <% end %>
+              </a>
+            </td>
+            <td class="text-right">
+              <%= link_to icon('fa', 'edit'), edit_domain_path(domain.o), title: t('domains.actions.edit')%[domain.o] %>
+              <%= link_to icon('fa', 'trash'), domain_path(domain.o), method: :delete, title: t('domains.actions.delete')%[domain.o] %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+  </table>
+<% else %>
+  No domains
+<% end %>
+
+<script>
+  $(document).ready(function() {
+    $("#domain-table").dataTable();
+  });
+</script
