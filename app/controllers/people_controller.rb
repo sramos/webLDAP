@@ -5,7 +5,6 @@ class PeopleController < ApplicationController
   # GET /domains/domainname/people
   def index
     @people = @domain.people
-    puts "*********** " + @people.inspect
   end
 
   # GET /domains/domainname/people/1
@@ -39,6 +38,7 @@ class PeopleController < ApplicationController
   end
 
   def get_person
+    @person = Person.find params[:id], base: @domain.dn
   end
 
   def person_params

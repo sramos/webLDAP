@@ -9,8 +9,8 @@
     </thead>
       <tbody>
         <% @people.each do |person| %>
-          <% show_url = domain_people_path(@domain.o, person.cn) %>
-          <% show_title = t('people.actions.show')%[person.cn] %>
+          <% show_url = domain_people_path(@domain.id, person.id) %>
+          <% show_title = t('people.actions.show')%[person.id] %>
           <tr data-href="<%= show_url %>">
             <td>
               <%= person.sn %>
@@ -19,8 +19,8 @@
               <%= link_to(person.mail, show_url, title: show_title) %>
             </td>
             <td class="text-right">
-              <%= link_to icon('fa', 'edit'), edit_domain_path(@domain.o), title: t('people.actions.edit')%[person.cn] %>
-              <%= link_to icon('fa', 'trash'), domain_path(@domain.o), method: :delete, title: t('people.actions.delete')%[person.cn] %>
+              <%= link_to icon('fa', 'edit'), edit_domain_person_path(@domain.id, person.id), title: t('people.actions.edit')%[person.id] %>
+              <%= link_to icon('fa', 'trash'), domain_person_path(@domain.id, person.id), method: :delete, title: t('people.actions.delete')%[person.id] %>
             </td>
           </tr>
         </a>

@@ -39,6 +39,7 @@ class AliasesController < ApplicationController
   end
 
   def get_alias
+    @alias = Alias.find params[:id], base: @domain.dn
   end
 
   def alias_params

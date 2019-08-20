@@ -2,25 +2,25 @@
   <table id="people-table" class="table table-hover data-table">
     <thead>
       <tr>
-        <th><%= t("people.attrib.name") %></th>
-        <th><%= t("people.attrib.mail") %></th>
+        <th><%= t("aliases.attrib.mail") %></th>
+        <th><%= t("aliases.attrib.maildrop") %></th>
         <th>&nbsp;</th>
       </tr>
     </thead>
       <tbody>
-        <% @people.each do |person| %>
-          <% show_url = domain_people_path(@domain.o, person[1]['cn'][0]) %>
-          <% show_title = t('people.actions.show')%[person[1]['cn'][0]] %>
+        <% @aliases.each do |ali| %>
+          <% show_url = domain_aliases_path(@domain.id, ali.id) %>
+          <% show_title = t('people.actions.show')%[ali.id] %>
           <tr data-href="<%= show_url %>">
             <td>
-              <%= person[1]['sn'].join(', ') %>
+              <%= ali.mail %>
             </td>
             <td>
-              <%= link_to(person[1]['mail'].join(', '), show_url, title: show_title) if person[1]['mail']%>
+              <%= link_to(ali.maildrop, show_url, title: show_title) %>
             </td>
             <td class="text-right">
-              <%= link_to icon('fa', 'edit'), edit_domain_path(@domain.o), title: t('people.actions.edit')%[person[1]['cn'][0]] %>
-              <%= link_to icon('fa', 'trash'), domain_path(@domain.o), method: :delete, title: t('people.actions.delete')%[person[1]['cn'][0]] %>
+              <%= link_to icon('fa', 'edit'), edit_domain_alias_path(@domain.id, ali.id), title: t('aliases.actions.edit')%[ali.id] %>
+              <%= link_to icon('fa', 'trash'), domain_alias_path(@domain.id, ali.id), method: :delete, title: t('aliases.actions.delete')%[ali.id] %>
             </td>
           </tr>
         </a>
