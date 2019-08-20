@@ -72,6 +72,13 @@ en:
     people-count:
       one: "one account"
       other: "%{count} accounts"
+  people:
+    name: Person
+    actions:
+      delete: "Delete account for '%s'"
+      edit: "Edit '%s' account"
+      new: "New person"
+      show: "Show data of '%s' account"
   errors:
     user:
       password_invalid: "Password invalid"

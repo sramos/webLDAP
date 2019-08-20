@@ -6,11 +6,11 @@ class Domain < LdapRecord
 
   # Return all mail accounts of the domain
   def people
-    Person.search base: self.dn
+    Person.find base: self.dn
   end
   # Return all mail alias of the domain
   def aliases
-    Alias.search base: self.dn
+    Alias.find base: self.dn
   end
 
 end

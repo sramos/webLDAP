@@ -1,0 +1,41 @@
+<% if @aliases.any? %>
+  <table id="people-table" class="table table-hover data-table">
+    <thead>
+      <tr>
+        <th><%= t("people.attrib.name") %></th>
+        <th><%= t("people.attrib.mail") %></th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+      <tbody>
+        <% @people.each do |person| %>
+          <% show_url = domain_people_path(@domain.o, person[1]['cn'][0]) %>
+          <% show_title = t('people.actions.show')%[person[1]['cn'][0]] %>
+          <tr data-href="<%= show_url %>">
+            <td>
+              <%= person[1]['sn'].join(', ') %>
+            </td>
+            <td>
+              <%= link_to(person[1]['mail'].join(', '), show_url, title: show_title) if person[1]['mail']%>
+            </td>
+            <td class="text-right">
+              <%= link_to icon('fa', 'edit'), edit_domain_path(@domain.o), title: t('people.actions.edit')%[person[1]['cn'][0]] %>
+              <%= link_to icon('fa', 'trash'), domain_path(@domain.o), method: :delete, title: t('people.actions.delete')%[person[1]['cn'][0]] %>
+            </td>
+          </tr>
+        </a>
+        <% end %>
+      </tbody>
+  </table>
+<% else %>
+  No people
+<% end %>
+
+<script>
+  $('#people-table').on( 'click', 'tbody tr', function () {
+    window.location.href = $(this).data('href');
+  });
+  $(document).ready(function() {
+    $("#people-table").dataTable();
+  });
+</script

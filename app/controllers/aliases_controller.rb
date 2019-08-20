@@ -1,8 +1,10 @@
 class AliasesController < ApplicationController
+  before_action :get_domain
   before_action :get_alias, only: [:show, :edit, :update, :destroy]
 
   # GET /domains/domainname/aliases
   def index
+    @aliases = @domain.aliases
   end
 
   # GET /domains/domainname/aliases/1
@@ -30,6 +32,11 @@ class AliasesController < ApplicationController
   end
 
   private
+
+
+  def get_domain
+    @domain = Domain.find params[:domain_id]
+  end
 
   def get_alias
   end
