@@ -1,4 +1,6 @@
 class DomainsController < ApplicationController
+  before_action :get_domain, only: [:show, :edit, :update, :destroy]
+
   # GET /domains
   def index
     @domains = []
@@ -35,6 +37,10 @@ class DomainsController < ApplicationController
   end
 
   private
+
+  def get_domain
+    @domain = Domain.find params[:id]
+  end
 
   def domain_params
   end
