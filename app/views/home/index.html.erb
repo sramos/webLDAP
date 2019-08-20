@@ -1,1 +1,8 @@
-Hola!
+<%= t('resources') %>:
+<ul class="mt-2">
+  <% @resources.each do |resource| %>
+    <li>
+      <%= link_to icon('fa', resource[:icon], resource[:name]), resource[:url], title: t('actions.go-to')%[resource[:name]] %>
+    </li>
+  <% end %>
+</ul>

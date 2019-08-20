@@ -1,11 +1,11 @@
 class HomeController < ApplicationController
   def index
+    @resources = [ {name: "Webmail",      icon: "envelope", url: "https://correo.sitiodistinto.net/"},
+                   {name: "URL shortner", icon: "cut", url: "http://crta.me/"},
+                   {name: "Github",       icon: "code-branch", url: "https://github.com/sramos"} ]
   end
 
   def edit_password
-    es_admin = current_user.is_global_admin?
-    puts "El usuario SI es administrador global" if es_admin
-    puts "El usuario NO es administrador global" unless es_admin
   end
 
   def update_password

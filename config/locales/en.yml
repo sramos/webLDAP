@@ -31,12 +31,14 @@
 
 en:
   hello: "Hello world"
+  resources: "Useful resources"
   actions:
     home: Home
     home-title: webLDAP homepage
     logout: Logout
     password: Password
     password-title: Change your password
+    go-to: "Go to %s webpage"
   devise:
     email: "Email address"
     password: "Password"
