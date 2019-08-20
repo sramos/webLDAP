@@ -50,13 +50,26 @@ en:
     signin-action: "Sign in"
   domains:
     actions:
+      aliases: "Manage mail aliases of '%s' domain"
       delete: "Delete domain %s"
       edit: "Edit domain %s"
       new: New domain
+      people: "Manage people accounts of '%s' domain"
       show: "Show domain %s"
+    associated-domain: Associated domain
+    mail-aliases: Mail aliases
+    mail-aliases-count:
+      one: "one alias"
+      other: "%{count} aliases"
     mail-redirected-to: "Mail redirected to %s"
+    mailbox: Mailbox
     menu: Domains
     menu-title: Domains management
+    name: Domain
+    people: People
+    people-count:
+      one: "one account"
+      other: "%{count} accounts"
   errors:
     user:
       password_invalid: "Password invalid"

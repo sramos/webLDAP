@@ -9,10 +9,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="h-100">
+  <body class="container">
     <%= render partial: "layouts/header" %>
-    <div class="row d-flex justify-content-center mt-4">
-      <div id="body" class="col-mb-10 col-xs-12">
+    <div id="body" class="justify-content-center mt-4">
+      <div class="col-mb-10 col-xs-12">
         <%= yield %>
       </div>
     </div>
