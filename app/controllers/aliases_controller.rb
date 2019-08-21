@@ -23,7 +23,7 @@ class AliasesController < ApplicationController
   # POST /domains/domainname/aliases/1
   def create
     @alias = Alias.new(alias_params)
-    @alias.domain_id = @domain.id
+    @alias.domain = @domain
     if @alias.save
       redirect_to domain_aliases_path(@domain), notice: t('aliases.creation-ok')
     else
