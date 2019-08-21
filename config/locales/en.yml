@@ -40,20 +40,19 @@ en:
     password-title: Change your password
     go-to: "Go to %s webpage"
   aliases:
-    creation-ok: "Alias created successfully"
-    deletion-ok: "Alias removed successfully"
-    edition-ok: "Alias updated successfully"
-    name: Alias
-    no-items: There is no alias for this domain
     actions:
+      create: Create alias
       delete: "Delete '%s' mail alias"
       delete-confirm: "Are you sure that you want to delete '%s' alias?"
       edit: "Edit '%s' alias"
-      new: "New Alias"
+      new: New Alias
       show: "Show '%s' alias"
-    form:
-      create-action: "Create alias"
-      update-action: "Update alias"
+      update: Update alias
+    creation-ok: Alias created successfully
+    deletion-ok: Alias removed successfully
+    edition-ok: Alias updated successfully
+    name: Alias
+    no-items: There is no alias for this domain
   devise:
     email: "Email address"
     password: "Password"
@@ -68,6 +67,7 @@ en:
   domains:
     actions:
       aliases: "Manage mail aliases of '%s' domain"
+      create: Create domain
       delete: "Delete domain %s"
       delete-confirm: "Are you sure that you want to delete '%s' domain?"
       edit: "Edit domain %s"
@@ -75,6 +75,10 @@ en:
       new: New domain
       people: "Manage people accounts of '%s' domain"
       show: "Show domain %s"
+      update: Update domain
+    creation-ok: "Domain created successfully"
+    deletion-ok: "Domain removed successfully"
+    edition-ok: "Domain updated successfully"
     groups: Groups
     groups-count:
       one: "one group"
@@ -87,6 +91,7 @@ en:
     menu: Domains
     menu-title: Domains management
     name: Domain
+    no-items: No domains
     people: People
     people-count:
       one: "one account"
@@ -113,11 +118,16 @@ en:
       maildrop: Send to
       member: Members
       sn: Surname
+      o: FQDN
     descriptions:
-      cn: "Full name"
-      description: DEscription
-      mail: "Email account"
-      maildrop: "Email accouts (separated with commas) to send incomming mails."
+      associated-domain: Associated Domain
+      cn: Full name
+      description: Description
+      mail: Email account
+      mailbox: Mailbox server for the domain mail system
+      maildrop: Email accouts (separated with commas) to send incomming mails
+      member: Members of the group
+      o: Fully qualified domain name
   people:
     name: Person
     actions:

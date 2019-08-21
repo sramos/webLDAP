@@ -1,11 +1,13 @@
 <div class="row align-items-center justify-content-center">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "col-mb-3 col-xs-12 text-center"}) do |f| %>
     <h1 class="h3 mt-3 mb-3 font-weight-normal"><%= I18n.t("devise.signin") %></h1>
-    <div class="field">
+    <div class="input-group">
+      <!--<span class="input-group-addon"><span class="fa fa-user fa-lg fa-fw"></span></span>-->
       <%= f.email_field :email, placeholder: I18n.t("devise.email"), autofocus: true, autocomplete: "email", class: "form-control" %>
     </div>
 
-    <div class="field">
+    <div class="input-group">
+      <!--<span class="input-group-addon"><span class="fa fa-key fa-lg fa-fw"></span></span>-->
       <%= f.password_field :password, placeholder: I18n.t("devise.password"), autocomplete: "current-password", class: "form-control" %>
     </div>
 

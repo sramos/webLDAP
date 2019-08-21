@@ -15,29 +15,43 @@ class DomainsController < ApplicationController
 
   # GET /domains/1
   def show
-    @current_page = @domain.id
   end
 
   # GET /domains/new
   def new
-    @current_page = t('domains.actions.new')
+    @domain = Domain.new
   end
 
   # GET /domains/1/edit
   def edit
-    @current_page = t('domains.actions.edit')%[@domain.o]
   end
 
   # POST /domains/1
   def create
+    @domain = Domain.new(domain_params)
+    if @domain.save
+      redirect_to domains_path, notice: t('domains.creation-ok')
+    else
+      render :new
+    end
   end
 
   # PUT /domains/1
   def update
+    if @domain.update(domain_params)
+      redirect_to domains_path, notice: t('domains.edition-ok')
+    else
+      render :edit
+    end
   end
 
   # DELETE /domains/1
   def destroy
+    if @domain.destroy
+      redirect_to domains_path, notice: t('aliases.deletion-ok')
+    else
+      render :edit
+    end
   end
 
   private
@@ -47,6 +61,8 @@ class DomainsController < ApplicationController
   end
 
   def domain_params
+    # ActiveLdap doesnt support ActionController::Parameters
+    params.require(:domain).permit( :o, :associateddomain, :destinationindicator ).to_hash
   end
 
 end

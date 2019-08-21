@@ -2,7 +2,7 @@
   <div class="col-md-10 col-xs-12">
     <div class="row mt-2">
       <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("domains.name") %>:</div>
-      <div class="col-md-8 col-xs-12"><%= @domain.o %></div>
+      <div class="col-md-8 col-xs-12"><%= @domain.id %></div>
     </div>
     <div class="row mt-2">
       <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("ldap.attributes.associated-domain") %>:</div>
@@ -12,7 +12,7 @@
       <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("ldap.attributes.mailbox") %>:</div>
       <div class="col-md-8 col-xs-12"><%= @domain.destinationIndicator %></div>
     </div>
-    
+
     <div class="row mt-4">
       <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("domains.people") %>:</div>
       <div class="col-md-8 col-xs-12">

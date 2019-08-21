@@ -1,9 +1,9 @@
 <% if @alias.id
-  submit_text = t('aliases.form.update-action')
+  submit_text = t('aliases.actions.update')
   submit_url = domain_alias_path(@domain.id, @alias.id)
   submit_method = 'put'
 else
-  submit_text = t('aliases.form.create-action')
+  submit_text = t('aliases.actions.create')
   submit_url = domain_aliases_path(@domain.id)
   submit_method = 'post'
 end %>
