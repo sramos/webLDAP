@@ -1,9 +1,10 @@
 
 class Alias < LdapRecord
   include Dominable
+  @@prefix = 'ou=Alias'
 
   ldap_mapping dn_attribute: 'mail',
-               prefix: 'ou=Alias', classes: ['top', 'person', 'courierMailAlias'],
+               classes: ['top', 'person', 'courierMailAlias'],
                scope: :sub
 
   def maildrop_as_string

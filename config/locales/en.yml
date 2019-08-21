@@ -50,9 +50,6 @@ en:
       edit: "Edit '%s' alias"
       new: "New Alias"
       show: "Show '%s' alias"
-    attribs:
-      mail: Alias
-      maildrop: Send to
     form:
       create-action: "Create alias"
       mail-description: "Email account"
@@ -74,16 +71,19 @@ en:
       aliases: "Manage mail aliases of '%s' domain"
       delete: "Delete domain %s"
       edit: "Edit domain %s"
+      groups: "Manage groups of '%s' domain"
       new: New domain
       people: "Manage people accounts of '%s' domain"
       show: "Show domain %s"
-    associated-domain: Associated domain
+    groups: Groups
+    groups-count:
+      one: "one group"
+      other: "%{count} groups"
     mail-aliases: Mail aliases
     mail-aliases-count:
       one: "one alias"
       other: "%{count} aliases"
     mail-redirected-to: "Mail redirected to %s"
-    mailbox: Mailbox
     menu: Domains
     menu-title: Domains management
     name: Domain
@@ -91,6 +91,26 @@ en:
     people-count:
       one: "one account"
       other: "%{count} accounts"
+  errors:
+    user:
+      password_invalid: "Password invalid"
+      passwords_dont_match: "Passwords don't match"
+  groups:
+    name: Group
+    actions:
+      delete: "Delete '%s' group"
+      edit: "Edit '%s' group"
+      new: "New group"
+      show: "Show data of '%s' group"
+  ldap:
+    attributes:
+      associated-domain: Associated Domain
+      cn: Common name
+      mail: Mail
+      mailbox: Mailbox
+      maildrop: Send to
+      member: Members
+      sn: Surname
   people:
     name: Person
     actions:
@@ -102,7 +122,3 @@ en:
       cn: "Common name"
       mail: "Email"
       sn: "Surname"
-  errors:
-    user:
-      password_invalid: "Password invalid"
-      passwords_dont_match: "Passwords don't match"

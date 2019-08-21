@@ -25,6 +25,6 @@ module Dominable
 
   # Ge the parent distinguised name of the object
   def parent_dn
-    self.class.prefix.to_s + "," + self.domain.dn.to_s
+    (@@prefix || self.class.prefix.to_s) + "," + self.domain.dn.to_s
   end
 end

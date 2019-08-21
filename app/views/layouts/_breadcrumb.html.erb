@@ -4,11 +4,13 @@
     end
     if @domain
       breadcrumb_items.push({name: t('domains.menu'), title: t('domains.menu-title'), url: domains_path})
-      if @alias || @aliases || @person || @people
+      if @alias || @aliases || @group || @groups || @person || @people
         breadcrumb_items.push({name: @domain.id, title: t('domains.actions.show')%[@domain.id], url: domain_path(@domain.id)})
       end
       if @alias
         breadcrumb_items.push({name: t('domains.mail-aliases'), title: t('domains.actions.aliases')%[@domain.id], url: domain_aliases_path(@domain.id)})
+      elsif @group
+        breadcrumb_items.push({name: t('domains.groups'), title: t('domains.actions.groups')%[@domain.id], url: domain_groups_path(@domain.id)})
       elsif @person
         breadcrumb_items.push({name: t('domains.people'), title: t('domains.actions.people')%[@domain.id], url: domain_people_path(@domain.id)})
       end

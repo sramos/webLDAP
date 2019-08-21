@@ -8,4 +8,10 @@ class LdapRecord < ActiveLdap::Base
                   filter: "(#{group_attribute}=#{user_dn})",
                   scope: :base).any?
   end
+
+  # Not all objects have prefix, so if some of then doesnt define it, so
+  # monkey patching and ignore defaults
+  def self.default_prefix
+    #super
+  end
 end

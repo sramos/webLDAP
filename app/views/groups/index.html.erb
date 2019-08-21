@@ -1,0 +1,44 @@
+<% @current_page = t('domains.groups') %>
+<% if @groups.any? %>
+  <table id="groupss-table" class="table table-hover data-table">
+    <thead>
+      <tr>
+        <th><%= t("ldap.attributes.cn") %></th>
+        <th><%= t("ldap.attributes.member") %></th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+      <tbody>
+        <% @groups.each do |group| %>
+          <% show_url = domain_group_path(@domain.id, group.id) %>
+          <% show_title = t('groups.actions.show')%[group.id] %>
+          <tr>
+            <td data-href="<%= show_url %>">
+              <%= link_to(group.cn, show_url, title: show_title) %>
+            </td>
+            <td data-href="<%= show_url %>">
+              <%= group.member_as_string %>
+            </td>
+            <td class="text-right">
+              <%= link_to icon('fa', 'edit'), edit_domain_group_path(@domain.id, group.id), title: t('groups.actions.edit')%[group.id] %>
+              <%= link_to icon('fa', 'trash'), domain_group_path(@domain.id, group.id), method: :delete, title: t('groups.actions.delete')%[group.id] %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+  </table>
+<% else %>
+  <div class="row">
+    <div class="col-md-12"><%= t('groups.no-items') %></div>
+  </div>
+<% end %>
+
+<div class="float-right mt-5">
+  <%= link_to icon('fa', 'group', t('groups.actions.new')), new_domain_alias_path(@domain.id), title: t('groups.actions.new'), class: 'page-link' %>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $("#groups-table").dataTable();
+  });
+</script
