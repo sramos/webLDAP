@@ -47,6 +47,7 @@ en:
     no-items: There is no alias for this domain
     actions:
       delete: "Delete '%s' mail alias"
+      delete-confirm: "Are you sure that you want to delete '%s' alias?"
       edit: "Edit '%s' alias"
       new: "New Alias"
       show: "Show '%s' alias"
@@ -70,6 +71,7 @@ en:
     actions:
       aliases: "Manage mail aliases of '%s' domain"
       delete: "Delete domain %s"
+      delete-confirm: "Are you sure that you want to delete '%s' domain?"
       edit: "Edit domain %s"
       groups: "Manage groups of '%s' domain"
       new: New domain
@@ -99,6 +101,7 @@ en:
     name: Group
     actions:
       delete: "Delete '%s' group"
+      delete-confirm: "Are you sure that you want to delete '%s' group?"
       edit: "Edit '%s' group"
       new: "New group"
       show: "Show data of '%s' group"
@@ -115,6 +118,7 @@ en:
     name: Person
     actions:
       delete: "Delete account for '%s'"
+      delete-confirm: "Are you sure that you want to delete '%s' account?"
       edit: "Edit '%s' account"
       new: "New person"
       show: "Show data of '%s' account"

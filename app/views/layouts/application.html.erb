@@ -21,7 +21,9 @@
 
   <script>
     $('.table').on( 'click', 'tbody tr td', function () {
-      window.location.href = $(this).data('href');
+      if ($(this).data('href')) {
+        window.location.href = $(this).data('href');
+      }
     });
   </script>
 </html>

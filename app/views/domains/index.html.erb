@@ -10,7 +10,7 @@
         <% @domains.each do |domain| %>
           <tr>
             <td>
-              <a href="<%= domain_path(domain.o) %>" title="<%= t('domains.actions.show')%[domain.o] %>">
+              <a href="<%= domain_path(domain.id) %>" title="<%= t('domains.actions.show')%[domain.id] %>">
                 <%= domain.o %>
                 <% if domain.o != domain.associatedDomain %>
                   <%= icon('fa', 'share', title: t('domains.mail-redirected-to')%[domain.associatedDomain]) %>
@@ -18,8 +18,9 @@
               </a>
             </td>
             <td class="text-right">
-              <%= link_to icon('fa', 'edit'), edit_domain_path(domain.o), title: t('domains.actions.edit')%[domain.o] %>
-              <%= link_to icon('fa', 'trash'), domain_path(domain.o), method: :delete, title: t('domains.actions.delete')%[domain.o] %>
+              <%= link_to icon('fa', 'edit'), edit_domain_path(domain.id), title: t('domains.actions.edit')%[domain.id] %>
+              <%= link_to icon('fa', 'trash'), domain_path(domain.id), method: :delete,
+                          data: {confirm: t('domain.actions.delete-confirm')%[domain.id]}, title: t('domains.actions.delete')%[domain.id] %>
             </td>
           </tr>
         <% end %>

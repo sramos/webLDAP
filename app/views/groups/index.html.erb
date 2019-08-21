@@ -21,7 +21,8 @@
             </td>
             <td class="text-right">
               <%= link_to icon('fa', 'edit'), edit_domain_group_path(@domain.id, group.id), title: t('groups.actions.edit')%[group.id] %>
-              <%= link_to icon('fa', 'trash'), domain_group_path(@domain.id, group.id), method: :delete, title: t('groups.actions.delete')%[group.id] %>
+              <%= link_to icon('fa', 'trash'), domain_group_path(@domain.id, group.id), method: :delete,
+                           data: {confirm: t('groups.actions.delete-confirm')%[group.id]}, title: t('groups.actions.delete')%[group.id] %>
             </td>
           </tr>
         <% end %>

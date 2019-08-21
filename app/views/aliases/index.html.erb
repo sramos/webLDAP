@@ -21,7 +21,8 @@
             </td>
             <td class="text-right">
               <%= link_to icon('fa', 'edit'), edit_domain_alias_path(@domain.id, ali.id), title: t('aliases.actions.edit')%[ali.id] %>
-              <%= link_to icon('fa', 'trash'), domain_alias_path(@domain.id, ali.id), method: :delete, title: t('aliases.actions.delete')%[ali.id] %>
+              <%= link_to icon('fa', 'trash'), domain_alias_path(@domain.id, ali.id), method: :delete,
+                          data: {confirm: t('aliases.actions.delete-confirm')%[ali.id]}, title: t('aliases.actions.delete')%[ali.id] %>
             </td>
           </tr>
         <% end %>
