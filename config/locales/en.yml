@@ -98,6 +98,10 @@ en:
       edit: "Edit '%s' account"
       new: "New person"
       show: "Show data of '%s' account"
+    attribs:
+      cn: "Common name"
+      mail: "Email"
+      sn: "Surname"
   errors:
     user:
       password_invalid: "Password invalid"

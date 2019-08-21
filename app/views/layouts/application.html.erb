@@ -18,4 +18,10 @@
       </div>
     </div>
   </body>
+
+  <script>
+    $('.table').on( 'click', 'tbody tr td', function () {
+      window.location.href = $(this).data('href');
+    });
+  </script>
 </html>
