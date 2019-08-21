@@ -1,6 +1,8 @@
 <% @current_page = t('domains.mail-aliases') %>
 <% if @aliases.any? %>
-  <table id="aliases-table" class="table table-hover data-table">
+  <table id="aliases-table"
+         data-page-length='25'
+         class="table table-striped table-bordered table-hover data-table">
     <thead>
       <tr>
         <th><%= t("aliases.name") %></th>

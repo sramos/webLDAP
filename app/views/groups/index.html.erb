@@ -1,6 +1,8 @@
 <% @current_page = t('domains.groups') %>
 <% if @groups.any? %>
-  <table id="groupss-table" class="table table-hover data-table">
+  <table id="groupss-table"
+         data-page-length='25'
+         class="table table-striped table-bordered table-hover data-table">
     <thead>
       <tr>
         <th><%= t("ldap.attributes.cn") %></th>

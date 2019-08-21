@@ -1,5 +1,7 @@
 <% if @domains.any? %>
-  <table id="domains-table" class="table table-hover data-table">
+  <table id="domains-table"
+         data-page-length='25'
+         class="table table-striped table-bordered table-hover data-table">
     <thead>
       <tr>
         <th><%= t("domains.name") %></th>
