@@ -2,21 +2,21 @@
   <table id="people-table" class="table table-hover data-table">
     <thead>
       <tr>
-        <th><%= t("aliases.attrib.mail") %></th>
-        <th><%= t("aliases.attrib.maildrop") %></th>
+        <th><%= t("aliases.attribs.mail") %></th>
+        <th><%= t("aliases.attribs.maildrop") %></th>
         <th>&nbsp;</th>
       </tr>
     </thead>
       <tbody>
         <% @aliases.each do |ali| %>
-          <% show_url = domain_aliases_path(@domain.id, ali.id) %>
+          <% show_url = domain_alias_path(@domain.id, ali.id) %>
           <% show_title = t('people.actions.show')%[ali.id] %>
           <tr data-href="<%= show_url %>">
             <td>
               <%= ali.mail %>
             </td>
             <td>
-              <%= link_to(ali.maildrop, show_url, title: show_title) %>
+              <%= link_to(ali.maildrop_as_string, show_url, title: show_title) %>
             </td>
             <td class="text-right">
               <%= link_to icon('fa', 'edit'), edit_domain_alias_path(@domain.id, ali.id), title: t('aliases.actions.edit')%[ali.id] %>

@@ -9,14 +9,14 @@
     </thead>
       <tbody>
         <% @people.each do |person| %>
-          <% show_url = domain_people_path(@domain.id, person.id) %>
+          <% show_url = domain_person_path(@domain.id, person.id) %>
           <% show_title = t('people.actions.show')%[person.id] %>
           <tr data-href="<%= show_url %>">
             <td>
               <%= person.sn %>
             </td>
             <td>
-              <%= link_to(person.mail, show_url, title: show_title) %>
+              <%= link_to(person.mail, show_url, title: show_title) if person.mail %>
             </td>
             <td class="text-right">
               <%= link_to icon('fa', 'edit'), edit_domain_person_path(@domain.id, person.id), title: t('people.actions.edit')%[person.id] %>

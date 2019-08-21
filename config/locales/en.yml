@@ -39,6 +39,16 @@ en:
     password: Password
     password-title: Change your password
     go-to: "Go to %s webpage"
+  aliases:
+    name: Alias
+    actions:
+      delete: "Delete '%s' mail alias"
+      edit: "Edit '%s' alias"
+      new: "New mail alias"
+      show: "Show '%s' alias"
+    attribs:
+      mail: Alias
+      maildrop: Send to
   devise:
     email: "Email address"
     password: "Password"

@@ -4,19 +4,23 @@ class PeopleController < ApplicationController
 
   # GET /domains/domainname/people
   def index
+    @current_page = t('domains.people')
     @people = @domain.people
   end
 
   # GET /domains/domainname/people/1
   def show
+    @current_page = @person.id
   end
 
   # GET /domains/domainname/people/new
   def new
+    @current_page = t('people.actions.new')
   end
 
   # GET /domains/domainname/people/1/edit
   def edit
+    @current_page = t('people.actions.edit')%[@person.id]
   end
 
   # POST /domains/domainname/people/1

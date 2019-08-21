@@ -4,19 +4,23 @@ class AliasesController < ApplicationController
 
   # GET /domains/domainname/aliases
   def index
+    @current_page = t('domains.mail-aliases')
     @aliases = @domain.aliases
   end
 
   # GET /domains/domainname/aliases/1
   def show
+    @current_page = @alias.id
   end
 
   # GET /domains/domainname/aliases/new
   def new
+    @current_page = t('aliases.actions.new')
   end
 
   # GET /domains/domainname/aliases/1/edit
   def edit
+    @current_page = t('aliases.actions.edit')%[@alias.id]
   end
 
   # POST /domains/domainname/aliases/1
@@ -32,7 +36,6 @@ class AliasesController < ApplicationController
   end
 
   private
-
 
   def get_domain
     @domain = Domain.find params[:domain_id]
