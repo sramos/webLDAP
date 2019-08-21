@@ -62,7 +62,8 @@ class DomainsController < ApplicationController
 
   def domain_params
     # ActiveLdap doesnt support ActionController::Parameters
-    params.require(:domain).permit( :o, :associateddomain, :destinationindicator ).to_hash
+    params.require(:domain).permit( :o, :associateddomain,
+                                    :destinationindicator, :description ).to_hash
   end
 
 end

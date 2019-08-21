@@ -29,6 +29,12 @@ end %>
         <%= text_field :domain, :destinationindicator, class: "form-control", required: true %>
       </div>
     </div>
+    <div class="row form-group" title="<%= t('ldap.descriptions.description') %>">
+      <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("ldap.attributes.description") %>:</div>
+      <div class="col-md-8 col-xs-12">
+        <%= text_field :domain, :description, class: "form-control" %>
+      </div>
+    </div>
     <div class="float-right">
       <%= submit_tag(submit_text) %>
     </div>

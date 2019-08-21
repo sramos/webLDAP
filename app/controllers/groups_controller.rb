@@ -55,7 +55,8 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params.require(:group).permit( :cn )
+    # ActiveLdap doesnt support ActionController::Parameters
+    params.require(:group).permit( :cn, :description ).to_hash
   end
 
 end

@@ -111,7 +111,7 @@ en:
   ldap:
     attributes:
       associated-domain: Associated Domain
-      cn: Common name
+      cn: Name
       description: Description
       mail: Email
       mailbox: Mailbox
@@ -121,7 +121,7 @@ en:
       o: FQDN
     descriptions:
       associated-domain: Associated Domain
-      cn: Full name
+      cn: Common name
       description: Description
       mail: Email account
       mailbox: Mailbox server for the domain mail system

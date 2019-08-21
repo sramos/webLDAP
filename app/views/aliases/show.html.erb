@@ -9,5 +9,13 @@
       <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("ldap.attributes.maildrop") %>:</div>
       <div class="col-md-8 col-xs-12"><%= @alias.maildrop_as_string %></div>
     </div>
+    <div class="row mt-2">
+      <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("ldap.attributes.cn") %>:</div>
+      <div class="col-md-8 col-xs-12"><%= @alias.cn %></div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("ldap.attributes.description") %>:</div>
+      <div class="col-md-8 col-xs-12"><%= @alias.description %></div>
+    </div>
   </div>
 </div>

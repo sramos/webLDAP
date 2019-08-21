@@ -56,7 +56,7 @@ class AliasesController < ApplicationController
 
   def alias_params
     # ActiveLdap doesnt support ActionController::Parameters
-    params.require(:alias).permit( :mail, :cn, :maildrop ).to_hash
+    params.require(:alias).permit( :mail, :cn, :maildrop, :description ).to_hash
   end
 
 end

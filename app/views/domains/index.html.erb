@@ -5,7 +5,8 @@
     <thead>
       <tr>
         <th><%= t("domains.name") %></th>
-        <th>&nbsp;</th>
+        <th data-orderable='false'>&nbsp;</th>
+        <th data-orderable='false'>&nbsp;</th>
       </tr>
     </thead>
       <tbody>
@@ -21,6 +22,9 @@
                   <%= icon('fa', 'share', title: t('domains.mail-redirected-to')%[domain.associatedDomain]) %>
                 <% end %>
               </a>
+            </td>
+            <td data-href="<%= show_url %>">
+              <%= domain.description %>
             </td>
             <td class="text-right">
               <%= link_to icon('fa', 'edit'), edit_domain_path(domain.id), title: t('domains.actions.edit')%[domain.id] %>
