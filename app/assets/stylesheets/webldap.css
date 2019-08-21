@@ -1,3 +1,34 @@
 #body {
   display: block;
 }
+
+.buttton {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: white;
+  border: 2px solid #dee2e6;
+}
+.button {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #007bff;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+.button:hover {
+  background-color: #e9ecef;
+  color: #0056b3;
+}

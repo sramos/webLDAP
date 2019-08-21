@@ -40,15 +40,24 @@ en:
     password-title: Change your password
     go-to: "Go to %s webpage"
   aliases:
+    creation-ok: "Alias created successfully"
+    deletion-ok: "Alias removed successfully"
+    edition-ok: "Alias updated successfully"
     name: Alias
+    no-items: There is no alias for this domain
     actions:
       delete: "Delete '%s' mail alias"
       edit: "Edit '%s' alias"
-      new: "New mail alias"
+      new: "New Alias"
       show: "Show '%s' alias"
     attribs:
       mail: Alias
       maildrop: Send to
+    form:
+      create-action: "Create alias"
+      mail-description: "Email account"
+      maildrop-description: "Email accouts to send incomming mails. If there is more than one, separate it with commas."
+      update-action: "Update alias"
   devise:
     email: "Email address"
     password: "Password"

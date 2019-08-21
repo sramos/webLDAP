@@ -1,0 +1,30 @@
+<% if @alias.id
+  submit_text = t('aliases.form.update-action')
+  submit_url = domain_alias_path(@domain.id, @alias.id)
+  submit_method = 'put'
+else
+  submit_text = t('aliases.form.create-action')
+  submit_url = domain_aliases_path(@domain.id)
+  submit_method = 'post'
+end %>
+
+<%= form_with url: submit_url, method: submit_method, class: "row" do %>
+  <%#= errors @alias %>
+  <div class="col-md-10 col-xs-12" title="<%= t('aliases.form.mail-description') %>">
+    <div class="row mt-2">
+      <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("aliases.attribs.mail") %>:</div>
+      <div class="col-md-8 col-xs-12">
+        <%= email_field :alias, :mail, class: "form-control", required: true, disabled: @alias.id %>
+      </div>
+    </div>
+    <div class="row form-group" title="<%= t('aliases.form.maildrop-description') %>">
+      <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("aliases.attribs.maildrop") %>:</div>
+      <div class="col-md-8 col-xs-12">
+        <%= text_field :alias, :maildrop, class: "form-control", required: true %>
+      </div>
+    </div>
+    <div class="float-right">
+      <%= submit_tag(submit_text) %>
+    </div>
+  </div>
+<% end %>

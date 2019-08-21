@@ -4,35 +4,49 @@ class AliasesController < ApplicationController
 
   # GET /domains/domainname/aliases
   def index
-    @current_page = t('domains.mail-aliases')
     @aliases = @domain.aliases
   end
 
   # GET /domains/domainname/aliases/1
   def show
-    @current_page = @alias.id
   end
 
   # GET /domains/domainname/aliases/new
   def new
-    @current_page = t('aliases.actions.new')
+    @alias = Alias.new
   end
 
   # GET /domains/domainname/aliases/1/edit
   def edit
-    @current_page = t('aliases.actions.edit')%[@alias.id]
   end
 
   # POST /domains/domainname/aliases/1
   def create
+    @alias = Alias.new(alias_params)
+    @alias.domain_id = @domain.id
+    if @alias.save
+      redirect_to domain_aliases_path(@domain), notice: t('aliases.creation-ok')
+    else
+      render :new
+    end
   end
 
   # PUT /domains/domainname/aliases/1
   def update
+    if @alias.update(alias_params)
+      redirect_to domain_aliases_path(@domain), notice: t('aliases.edition-ok')
+    else
+      render :edit
+    end
   end
 
   # DELETE /domains/domainname/aliases/1
   def destroy
+    if @alias.destroy
+      redirect_to domain_aliases_path(@domain), notice: t('aliases.deletion-ok')
+    else
+      render :edit
+    end
   end
 
   private
@@ -46,6 +60,7 @@ class AliasesController < ApplicationController
   end
 
   def alias_params
+    params.require(:alias).permit( :mail, :mailDrop )
   end
 
 end

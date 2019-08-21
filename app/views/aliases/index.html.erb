@@ -1,3 +1,4 @@
+<% @current_page = t('domains.mail-aliases') %>
 <% if @aliases.any? %>
   <table id="people-table" class="table table-hover data-table">
     <thead>
@@ -13,10 +14,10 @@
           <% show_title = t('people.actions.show')%[ali.id] %>
           <tr data-href="<%= show_url %>">
             <td>
-              <%= ali.mail %>
+              <%= link_to(ali.mail, show_url, title: show_title) %>
             </td>
             <td>
-              <%= link_to(ali.maildrop_as_string, show_url, title: show_title) %>
+              <%= ali.maildrop_as_string %>
             </td>
             <td class="text-right">
               <%= link_to icon('fa', 'edit'), edit_domain_alias_path(@domain.id, ali.id), title: t('aliases.actions.edit')%[ali.id] %>
@@ -28,8 +29,14 @@
       </tbody>
   </table>
 <% else %>
-  No people
+  <div class="row">
+    <div class="col-md-12"><%= t('aliases.no-items') %></div>
+  </div>
 <% end %>
+
+<div class="float-right mt-5">
+  <%= link_to icon('fa', 'envelope', t('aliases.actions.new')), new_domain_alias_path(@domain.id), title: t('aliases.actions.new'), class: 'page-link' %>
+</div>
 
 <script>
   $('#people-table').on( 'click', 'tbody tr', function () {
