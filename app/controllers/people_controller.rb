@@ -1,5 +1,4 @@
 class PeopleController < ApplicationController
-  before_action :get_domain
   before_action :get_person, only: [:show, :edit, :update, :destroy]
 
   # GET /domains/domainname/people
@@ -36,10 +35,6 @@ class PeopleController < ApplicationController
   end
 
   private
-
-  def get_domain
-    @domain = Domain.find params[:domain_id]
-  end
 
   def get_person
     @person = Person.find params[:id], base: @domain.dn

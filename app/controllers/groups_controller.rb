@@ -1,5 +1,4 @@
 class GroupsController < ApplicationController
-  before_action :get_domain
   before_action :get_group, only: [:show, :edit, :update, :destroy]
 
   # GET /domains/domainname/groups
@@ -50,10 +49,6 @@ class GroupsController < ApplicationController
   end
 
   private
-
-  def get_domain
-    @domain = Domain.find params[:domain_id]
-  end
 
   def get_group
     @group = Group.find params[:id], base: @domain.dn
