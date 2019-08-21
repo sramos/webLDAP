@@ -10,17 +10,23 @@ end %>
 
 <%= form_with url: submit_url, method: submit_method, class: "row" do %>
   <%#= errors @alias %>
-  <div class="col-md-10 col-xs-12" title="<%= t('aliases.form.mail-description') %>">
+  <div class="col-md-10 col-xs-12" title="<%= t('ldap.descriptions.mail') %>">
     <div class="row mt-2">
       <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("aliases.name") %>:</div>
       <div class="col-md-8 col-xs-12">
         <%= email_field :alias, :mail, class: "form-control", required: true, disabled: @alias.id %>
       </div>
     </div>
-    <div class="row form-group" title="<%= t('aliases.form.maildrop-description') %>">
+    <div class="row form-group" title="<%= t('ldap.descriptions.maildrop') %>">
       <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("ldap.attributes.maildrop") %>:</div>
       <div class="col-md-8 col-xs-12">
         <%= text_field :alias, :maildrop, class: "form-control", required: true %>
+      </div>
+    </div>
+    <div class="row form-group" title="<%= t('ldap.descriptions.description') %>">
+      <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("ldap.attributes.description") %>:</div>
+      <div class="col-md-8 col-xs-12">
+        <%= text_field :alias, :cn, class: "form-control", required: true %>
       </div>
     </div>
     <div class="float-right">

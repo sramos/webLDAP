@@ -1,10 +1,6 @@
 module Dominable
   extend ActiveSupport::Concern
 
-  included do
-    attr_writer :domain
-  end
-
   # Get domain of the object from the full subtree
   def domain
     # if domain_id is not defined, obtain it from object dn
@@ -22,9 +18,16 @@ module Dominable
     end
     return @domain
   end
+  # Set domain of the object and build dn
+  def domain=domain
+    if domain.class == Domain
+      @domain = domain
+      self.dn = "#{self.class.dn_attribute}=#{self.id}," + parent_dn
+    end
+  end
 
   # Ge the parent distinguised name of the object
   def parent_dn
-    (@@prefix || self.class.prefix.to_s) + "," + self.domain.dn.to_s
+    (self.class::PREFIX || self.class.prefix.to_s) + "," + self.domain.dn.to_s
   end
 end

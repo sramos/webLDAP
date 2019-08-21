@@ -53,8 +53,6 @@ en:
       show: "Show '%s' alias"
     form:
       create-action: "Create alias"
-      mail-description: "Email account"
-      maildrop-description: "Email accouts to send incomming mails. If there is more than one, separate it with commas."
       update-action: "Update alias"
   devise:
     email: "Email address"
@@ -109,11 +107,17 @@ en:
     attributes:
       associated-domain: Associated Domain
       cn: Common name
-      mail: Mail
+      description: Description
+      mail: Email
       mailbox: Mailbox
       maildrop: Send to
       member: Members
       sn: Surname
+    descriptions:
+      cn: "Full name"
+      description: DEscription
+      mail: "Email account"
+      maildrop: "Email accouts (separated with commas) to send incomming mails."
   people:
     name: Person
     actions:
@@ -122,7 +126,3 @@ en:
       edit: "Edit '%s' account"
       new: "New person"
       show: "Show data of '%s' account"
-    attribs:
-      cn: "Common name"
-      mail: "Email"
-      sn: "Surname"

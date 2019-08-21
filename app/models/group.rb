@@ -1,7 +1,7 @@
 
 class Group < LdapRecord
+  PREFIX = "ou=Group"
   include Dominable
-  @@prefix = 'ou=Group'
 
   ldap_mapping dn_attribute: 'cn',
                classes: ['groupOfNames'],

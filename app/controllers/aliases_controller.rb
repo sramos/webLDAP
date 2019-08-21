@@ -55,7 +55,7 @@ class AliasesController < ApplicationController
   end
 
   def alias_params
-    params.require(:alias).permit( :mail, :mailDrop )
+    params.require(:alias).permit( :mail, :cn, :maildrop )
   end
 
 end
