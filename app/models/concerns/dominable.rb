@@ -26,8 +26,14 @@ module Dominable
     end
   end
 
-  # Ge the parent distinguised name of the object
+  # Get the parent distinguised name of the object
   def parent_dn
-    (self.class::PREFIX || self.class.prefix.to_s) + "," + self.domain.dn.to_s
+    # If there is no prefix on the model, objet is just below domain
+    if self.class::PREFIX.blank?
+      self.domain.dn.to_s
+    # With a prefix in the model, it has to be in that place
+    else
+      self.class::PREFIX + "," + self.domain.dn.to_s
+    end
   end
 end
