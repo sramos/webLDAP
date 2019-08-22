@@ -1,20 +1,20 @@
-<% if @group.id
-  submit_text = t('groups.form.update-action')
-  submit_url = domain_group_path(@domain.id, @group.id)
-  submit_method = 'put'
-else
+<% if @group.new_record?
   submit_text = t('groups.form.create-action')
   submit_url = domain_groups_path(@domain.id)
   submit_method = 'post'
+else
+  submit_text = t('groups.form.update-action')
+  submit_url = domain_group_path(@domain.id, @group.id)
+  submit_method = 'put'
 end %>
 
-<%= form_with url: submit_url, method: submit_method, class: "row" do %>
-  <%#= errors @alias %>
+<%= form_with url: submit_url, method: submit_method, local: true do %>
+  <%= render partial: 'layouts/errors', locals: {object: @group} %>
   <div class="col-md-10 col-xs-12" title="<%= t('groups.form.cn-description') %>">
     <div class="row mt-2">
       <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("groups.name") %>:</div>
       <div class="col-md-8 col-xs-12">
-        <%= email_field :group, :cn, class: "form-control", required: true, disabled: @group.id %>
+        <%= email_field :group, :cn, class: "form-control", required: true, disabled: !@group.new_record? %>
       </div>
     </div>
     <div class="row form-group" title="<%= t('groups.form.member-description') %>">

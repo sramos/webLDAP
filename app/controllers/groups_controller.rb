@@ -21,9 +21,8 @@ class GroupsController < ApplicationController
 
   # POST /domains/domainname/groups/1
   def create
-    @group = Group.new(group_params)
-    @group.domain = @domain
-    if @group.save
+    @group = Group.new(domain: @domain)
+    if @group.update_attributes(group_params)
       redirect_to domain_groups_path(@domain), notice: t('groups.creation-ok')
     else
       render :new
@@ -55,8 +54,7 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    # ActiveLdap doesnt support ActionController::Parameters
-    params.require(:group).permit( :cn, :description ).to_hash
+    params.require(:group).permit( :cn, :description )
   end
 
 end

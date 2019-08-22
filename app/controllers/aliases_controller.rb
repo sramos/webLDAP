@@ -21,9 +21,8 @@ class AliasesController < ApplicationController
 
   # POST /domains/domainname/aliases/1
   def create
-    @alias = Alias.new(alias_params)
-    @alias.domain = @domain
-    if @alias.save
+    @alias = Alias.new(domain: @domain)
+    if @alias.update_attributes(alias_params)
       redirect_to domain_aliases_path(@domain), notice: t('aliases.creation-ok')
     else
       render :new
@@ -32,7 +31,7 @@ class AliasesController < ApplicationController
 
   # PUT /domains/domainname/aliases/1
   def update
-    if @alias.update(alias_params)
+    if @alias.update_attributes(alias_params)
       redirect_to domain_aliases_path(@domain), notice: t('aliases.edition-ok')
     else
       render :edit
@@ -55,8 +54,7 @@ class AliasesController < ApplicationController
   end
 
   def alias_params
-    # ActiveLdap doesnt support ActionController::Parameters
-    params.require(:alias).permit( :mail, :cn, :maildrop, :description ).to_hash
+    params.require(:alias).permit( :mail, :cn, :maildrop, :description )
   end
 
 end

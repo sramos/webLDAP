@@ -1,0 +1,17 @@
+<% if defined?(object) && object.errors.any? %>
+  <div class="alert alert-danger col-xs-12" role="alert">
+    <div id="error_explanation" class="text-align-center">
+      <h2>
+        <%= I18n.t("errors.messages.not_saved",
+                   count: object.errors.count,
+                   resource: object.class.model_name.human.downcase)
+         %>
+      </h2>
+      <ul>
+        <% object.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

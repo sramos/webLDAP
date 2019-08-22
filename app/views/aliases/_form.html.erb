@@ -1,20 +1,20 @@
-<% if @alias.id
-  submit_text = t('aliases.actions.update')
-  submit_url = domain_alias_path(@domain.id, @alias.id)
-  submit_method = 'put'
-else
+<% if @alias.new_record?
   submit_text = t('aliases.actions.create')
   submit_url = domain_aliases_path(@domain.id)
   submit_method = 'post'
+else
+  submit_text = t('aliases.actions.update')
+  submit_url = domain_alias_path(@domain.id, @alias.id)
+  submit_method = 'put'
 end %>
 
-<%= form_with url: submit_url, method: submit_method, class: "row" do %>
-  <%#= errors @alias %>
+<%= form_with url: submit_url, method: submit_method, local: true do %>
+  <%= render partial: 'layouts/errors', locals: {object: @alias} %>
   <div class="col-md-10 col-xs-12" title="<%= t('ldap.descriptions.mail') %>">
     <div class="row mt-2">
       <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("aliases.name") %>:</div>
       <div class="col-md-8 col-xs-12">
-        <%= email_field :alias, :mail, class: "form-control", required: true, disabled: @alias.id %>
+        <%= email_field :alias, :mail, class: "form-control", required: true, disabled: !@alias.new_record? %>
       </div>
     </div>
     <div class="row form-group" title="<%= t('ldap.descriptions.maildrop') %>">

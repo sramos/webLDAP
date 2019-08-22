@@ -1,6 +1,12 @@
 module Dominable
   extend ActiveSupport::Concern
 
+  included do
+    before_validation do
+      set_dn_from_domain
+    end
+  end
+
   # Get domain of the object from the full subtree
   def domain
     # if domain_id is not defined, obtain it from object dn
@@ -20,10 +26,11 @@ module Dominable
   end
   # Set domain of the object and build dn
   def domain=domain
-    if domain.class == Domain
-      @domain = domain
-      self.dn = "#{self.class.dn_attribute}=#{self.id}," + parent_dn
-    end
+    @domain = domain if domain.class == Domain
+  end
+  # Set the dn of the object from the related domain
+  def set_dn_from_domain
+    self.dn = "#{self.class.dn_attribute}=#{self.id}," + parent_dn
   end
 
   # Get the parent distinguised name of the object

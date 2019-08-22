@@ -31,3 +31,7 @@
   background-color: #e9ecef;
   color: #0056b3;
 }
+
+.alert h2 {
+  font-size: 1.2rem;
+}

@@ -3,7 +3,6 @@ class DomainsController < ApplicationController
 
   # GET /domains
   def index
-    @current_page = t('domains.menu-title')
     @domains = []
     # If current user is global admin, get all domains
     Domain.all.each do |domain|
@@ -28,8 +27,8 @@ class DomainsController < ApplicationController
 
   # POST /domains/1
   def create
-    @domain = Domain.new(domain_params)
-    if @domain.save
+    @domain = Domain.new
+    if @domain.update_attributes(domain_params)
       redirect_to domains_path, notice: t('domains.creation-ok')
     else
       render :new
@@ -38,7 +37,7 @@ class DomainsController < ApplicationController
 
   # PUT /domains/1
   def update
-    if @domain.update(domain_params)
+    if @domain.update_attributes(domain_params)
       redirect_to domains_path, notice: t('domains.edition-ok')
     else
       render :edit
@@ -61,9 +60,8 @@ class DomainsController < ApplicationController
   end
 
   def domain_params
-    # ActiveLdap doesnt support ActionController::Parameters
     params.require(:domain).permit( :o, :associateddomain,
-                                    :destinationindicator, :description ).to_hash
+                                    :destinationindicator, :description )
   end
 
 end
