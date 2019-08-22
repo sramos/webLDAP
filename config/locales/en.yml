@@ -100,6 +100,10 @@ en:
     user:
       password_invalid: "Password invalid"
       passwords_dont_match: "Passwords don't match"
+    alias:
+      mail-domain: "Alias mail '%s' must be an email address of the domain '%s'"
+    domain:
+      destroy-with-items: "Domain can't be deleted with items assigned. Delete it first"
   groups:
     name: Group
     actions:

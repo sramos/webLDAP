@@ -10,15 +10,15 @@ end %>
 
 <%= form_with url: submit_url, method: submit_method, local: true do %>
   <%= render partial: 'layouts/errors', locals: {object: @alias} %>
-  <div class="col-md-10 col-xs-12" title="<%= t('ldap.descriptions.mail') %>">
-    <div class="row mt-2">
-      <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("aliases.name") %>:</div>
+  <div class="col-md-10 col-xs-12">
+    <div class="row form-group mt-2" title="<%= t('ldap.descriptions.mail') %>">
+      <div class="col-md-3 col-xs-12 text-md-right font-weight-bold">* <%= t("aliases.name") %>:</div>
       <div class="col-md-8 col-xs-12">
         <%= email_field :alias, :mail, class: "form-control", required: true, disabled: !@alias.new_record? %>
       </div>
     </div>
     <div class="row form-group" title="<%= t('ldap.descriptions.maildrop') %>">
-      <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("ldap.attributes.maildrop") %>:</div>
+      <div class="col-md-3 col-xs-12 text-md-right font-weight-bold">* <%= t("ldap.attributes.maildrop") %>:</div>
       <div class="col-md-8 col-xs-12">
         <%= text_field :alias, :maildrop, class: "form-control", required: true %>
       </div>
@@ -26,7 +26,7 @@ end %>
     <div class="row form-group" title="<%= t('ldap.descriptions.cn') %>">
       <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("ldap.attributes.cn") %>:</div>
       <div class="col-md-8 col-xs-12">
-        <%= text_field :alias, :cn, class: "form-control", required: true %>
+        <%= text_field :alias, :cn, class: "form-control" %>
       </div>
     </div>
     <div class="row form-group" title="<%= t('ldap.descriptions.description') %>">

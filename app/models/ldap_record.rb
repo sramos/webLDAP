@@ -14,4 +14,19 @@ class LdapRecord < ActiveLdap::Base
   def self.default_prefix
     #super
   end
+
+  # Capture recursion exception and show as error
+  def destroy
+    begin
+      super
+    rescue ActiveLdap::DeleteError => e
+      # If error is about recursive deletion, ignore it
+      if e.message.end_with?("subordinate objects must be deleted first")
+        puts "***** " + e.message
+        #Rails.logger.warn e.message
+      else
+        raise e
+      end
+    end
+  end
 end

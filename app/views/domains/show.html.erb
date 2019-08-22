@@ -18,26 +18,6 @@
       <div class="col-md-8 col-xs-12"><%= @domain.description %></div>
     </div>
 
-    <div class="row mt-4">
-      <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("domains.people") %>:</div>
-      <div class="col-md-8 col-xs-12">
-        <%= link_to icon('fa', 'user-edit', t("domains.people-count", count: @domain.people.count)),
-                    domain_people_path(@domain.o), title: t('domains.actions.people')%[@domain.o] %>
-      </div>
-    </div>
-    <div class="row mt-2">
-      <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("domains.groups") %>:</div>
-      <div class="col-md-8 col-xs-12">
-        <%= link_to icon('fa', 'users', t("domains.groups-count", count: @domain.groups.count)),
-                    domain_groups_path(@domain.o), title: t('domains.actions.groups')%[@domain.o] %>
-      </div>
-    </div>
-    <div class="row mt-2">
-      <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("domains.mail-aliases") %>:</div>
-      <div class="col-md-8 col-xs-12">
-        <%= link_to icon('fa', 'envelope', t("domains.mail-aliases-count", count: @domain.aliases.count)),
-                    domain_aliases_path(@domain.o), title: t('domains.actions.aliases')%[@domain.o] %>
-      </div>
-    </div>
+    <%= render partial: 'items' %>
   </div>
 </div>

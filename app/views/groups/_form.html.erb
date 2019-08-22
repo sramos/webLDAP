@@ -10,8 +10,8 @@ end %>
 
 <%= form_with url: submit_url, method: submit_method, local: true do %>
   <%= render partial: 'layouts/errors', locals: {object: @group} %>
-  <div class="col-md-10 col-xs-12" title="<%= t('groups.form.cn-description') %>">
-    <div class="row mt-2">
+  <div class="col-md-10 col-xs-12">
+    <div class="row mt-2 form-group" title="<%= t('groups.form.cn-description') %>">
       <div class="col-md-3 col-xs-12 text-md-right font-weight-bold"><%= t("groups.name") %>:</div>
       <div class="col-md-8 col-xs-12">
         <%= email_field :group, :cn, class: "form-control", required: true, disabled: !@group.new_record? %>

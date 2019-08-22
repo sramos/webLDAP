@@ -18,4 +18,7 @@
       <div class="col-md-8 col-xs-12"><%= @alias.description %></div>
     </div>
   </div>
+  <div class="float-right mt-5">
+    <%= link_to icon('fa', 'envelope', t('aliases.actions.new')), new_domain_alias_path(@domain.id), title: t('aliases.actions.new'), class: 'page-link' %>
+  </div>
 </div>
