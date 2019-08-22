@@ -33,6 +33,7 @@ en:
   hello: "Hello world"
   resources: "Useful resources"
   actions:
+    edit: Edit
     home: Home
     home-title: webLDAP homepage
     logout: Logout
