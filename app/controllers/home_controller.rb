@@ -6,6 +6,7 @@ class HomeController < ApplicationController
                     icon: 'globe-europe', url: domains_path},
                    {name: 'Webmail',      icon: 'envelope', url: 'https://correo.sitiodistinto.net/'},
                    {name: 'URL shortner', icon: 'cut', url: 'http://crta.me/'},
+                   {name: 'GitLab',       icon: 'code-branch', url: 'https://gitlab.com/sanraro'}
                    {name: 'Github',       icon: 'code-branch', url: 'https://github.com/sramos'} ]
   end
 
