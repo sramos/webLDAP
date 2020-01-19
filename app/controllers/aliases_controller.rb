@@ -48,10 +48,12 @@ class AliasesController < ApplicationController
   end
 
   def fast_alias
+    @current_page = t('aliases.actions.fast-alias')
     @alias = Alias.new
   end
 
   def fast_alias_creation
+    @current_page = t('aliases.actions.fast-alias')
     @alias = Alias.create_random_alias current_user, 'crta.me'
     render :fast_alias
   end

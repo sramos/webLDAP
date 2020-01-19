@@ -47,6 +47,7 @@ en:
       delete-confirm: "Are you sure that you want to delete '%s' alias?"
       edit: "Edit '%s' alias"
       fast-alias: Create random alias
+      fast-alias-title: Create random alias for current user
       new: New Alias
       show: "Show '%s' alias"
       update: Update alias
