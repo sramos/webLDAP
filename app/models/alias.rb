@@ -22,6 +22,22 @@ class Alias < LdapRecord
     self.mailDrop.class == Array ? self.mailDrop.join(", ") : self.mailDrop
   end
 
+  def self.create_random_alias user, domainname
+    pending_alias = true
+    # Create random alias into "crta.me" domain
+    while pending_alias
+      random_part = ('a'..'z').to_a.shuffle[0,4].join
+      # Check if alias exists
+      pending_alias = Alias.search(filter: "mail=#{random_part}@#{domainname}").any?
+    end
+    # This has to be done by any admin, not by current user
+    return Alias.create(domain: Domain.find(domainname),
+                        mail: "#{random_part}@#{domainname}",
+                        cn: "#{user.name} random alias",
+                        maildrop: user.email,
+                        description: "Automatically generated alias #{I18n.l(Date.today)}")
+  end
+
   private
 
   # Check if alias mail belongs to own domain
