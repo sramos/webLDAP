@@ -64,9 +64,11 @@ class AliasesController < ApplicationController
       # Check if alias exists
       pending_alias = Alias.search(filter: "mail=#{random_part}@#{domainname}").any?
     end
-    @alias = Alias.new(domain: Domain.find(domainname))
-
-    @alias.update_attributes mail: "#{random_part}@#{domainname}"
+    @alias = Alias.create domain: Domain.find(domainname),
+                          mail: "#{random_part}@#{domainname}",
+                          cn: "#{current_user.name} random alias",
+                          maildrop: current_user.email,
+                          description: "Automatically generated alias #{I18n.l(Date.today)}"
     if @alias.errors.empty?
       redirect_to domain_aliases_path(domainname), notice: t('aliases.creation-ok')
     else
