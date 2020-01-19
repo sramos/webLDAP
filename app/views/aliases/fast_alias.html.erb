@@ -1,9 +1,19 @@
 
-<%= form_with url: fast_alias_path, method: :post, local: true do %>
-  <%= render partial: 'layouts/errors', locals: {object: @alias} %>
-  <div class="col-md-10 col-xs-12">
-    <div class="float-right">
-      <%= submit_tag(t('aliases.actions.fast-alias')) %>
+<% if @alias.mail %>
+  <div class="alert alert-success col-xs-12" role="alert">
+    <div id="explanation" class="text-align-center">
+      <h2>
+        <%= I18n.t('alias.fast-alias-creation-ok')%[@alias.mail] %>
+      </h2>
     </div>
   </div>
+<% else %>
+  <%= form_with url: fast_alias_path, method: :post, local: true do %>
+    <%= render partial: 'layouts/errors', locals: {object: @alias} %>
+    <div class="col-md-10 col-xs-12">
+      <div class="float-right">
+        <%= submit_tag(t('aliases.actions.fast-alias')) %>
+      </div>
+    </div>
+  <% end %>
 <% end %>
