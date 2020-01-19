@@ -10,6 +10,8 @@ gem 'mysql2'
 gem 'activeldap'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+# https://github.com/sass/sassc-ruby/issues/146 
+gem 'sassc', '2.1.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

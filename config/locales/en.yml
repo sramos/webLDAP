@@ -53,6 +53,7 @@ en:
     creation-ok: Alias created successfully
     deletion-ok: Alias removed successfully
     edition-ok: Alias updated successfully
+    fast-alias-creation-ok: A new fast alias %s was created succesfully
     name: Alias
     no-items: There is no alias for this domain
   devise:
