@@ -46,6 +46,7 @@ en:
       delete: "Delete '%s' mail alias"
       delete-confirm: "Are you sure that you want to delete '%s' alias?"
       edit: "Edit '%s' alias"
+      fast-alias: Create random alias
       new: New Alias
       show: "Show '%s' alias"
       update: Update alias

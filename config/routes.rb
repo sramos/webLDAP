@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get '/change_password' => 'home#edit_password'
   post '/change_password' => 'home#update_password'
+  get '/fast_alias' => 'aliases#fast_alias'
+  post '/fast_alias' => 'aliases#fast_alias_creation'
   resources :domains, constraints: { id: /[^\/]+(?=\.html\z|\.json\z)|[^\/]+/ } do
     resources :aliases
     resources :groups

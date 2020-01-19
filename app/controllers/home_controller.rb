@@ -2,6 +2,8 @@ class HomeController < ApplicationController
   def index
     @resources = [ {name: t('actions.password-title'),
                     icon: 'key', url: change_password_path},
+                   {name: t('aliases.actions.fast-alias'),
+                    icon: 'random', url: fast_alias_path},
                    {name: t('domains.menu-title'),
                     icon: 'globe-europe', url: domains_path},
                    {name: 'Webmail',      icon: 'envelope', url: 'https://correo.sitiodistinto.net/'},

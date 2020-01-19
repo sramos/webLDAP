@@ -47,6 +47,33 @@ class AliasesController < ApplicationController
     end
   end
 
+  def fast_alias
+    @alias = Alias.new
+  end
+
+  def fast_alias_creation
+    pending_alias = true
+    domainname = 'crta.me'
+    # Create random alias into "crta.me" domain
+    @alias = Alias.new(domain: Domain.find(domainname),
+                       cn: "#{current_user.name} random alias",
+                       maildrop: current_user.email,
+                       description: "Automatically generated alias #{I18n.l(Date.today)}")
+    while pending_alias
+      random_part = ('a'..'z').to_a.shuffle[0,4].join
+      # Check if alias exists
+      pending_alias = Alias.search(filter: "mail=#{random_part}@#{domainname}").any?
+    end
+    @alias = Alias.new(domain: Domain.find(domainname))
+
+    @alias.update_attributes mail: "#{random_part}@#{domainname}"
+    if @alias.errors.empty?
+      redirect_to domain_aliases_path(domainname), notice: t('aliases.creation-ok')
+    else
+      render :fast_alias
+    end
+  end
+
   private
 
   def get_alias

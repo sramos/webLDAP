@@ -1,0 +1,8 @@
+<%= form_with url: fast_alias_path, method: :post, local: true do %>
+  <%= render partial: 'layouts/errors', locals: {object: @alias} %>
+  <div class="col-md-10 col-xs-12">
+    <div class="float-right">
+      <%= submit_tag(t('aliases.actions.fast-alias')) %>
+    </div>
+  </div>
+<% end %>
