@@ -5,8 +5,8 @@
          class="table table-striped table-bordered table-hover data-table">
     <thead>
       <tr>
-        <th><%= t("aliases.name") %></th>
         <th><%= t("aliases.email") %></th>
+        <th><%= t("aliases.name") %></th>
         <th><%= t("ldap.attributes.maildrop") %></th>
         <th data-orderable='false'>&nbsp;</th>
       </tr>
@@ -20,7 +20,7 @@
               <%= link_to(ali.mail, show_url, title: show_title) %>
             </td>
             <td data-href="<%= show_url %>">
-              <%= link_to(ali.name, show_url, title: ali.description) %>
+              <%= link_to(ali.cn, show_url, title: ali.description) %>
             </td>
             <td data-href="<%= show_url %>">
               <%= ali.maildrop_as_string %>
