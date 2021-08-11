@@ -3,6 +3,8 @@
 !/log/.keep
 /tmp/*
 !/tmp/.keep
+!/tmp/pids/.keep
+!/tmp/sockets/.keep
 /.git
 /config/master.key
 /railsapp.env
