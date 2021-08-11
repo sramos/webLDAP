@@ -1,4 +1,4 @@
-FROM ruby:2.6.8
+FROM ruby:2.7.4
 MAINTAINER Santiago Ramos "sramos@sitiodistinto.net"
 
 # Set the base directory used in any further RUN, COPY, and ENTRYPOINT
