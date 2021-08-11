@@ -7,6 +7,9 @@ stages:
   - build
   - push
 
+include:
+  - template: Security/Dependency-Scanning.gitlab-ci.yml
+
 variables:
   IMAGE_NAME: sanraro/webldap
   IMAGE_TAG: sanraro/webldap:$CI_COMMIT_SHA
@@ -42,6 +45,4 @@ Push tag:
     - docker tag $IMAGE_TAG $IMAGE_NAME:$CI_COMMIT_REF_NAME
     - docker push $IMAGE_NAME:$CI_COMMIT_REF_NAME
 
-include:
-  - template: Security/Dependency-Scanning.gitlab-ci.yml
 
