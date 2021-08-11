@@ -41,3 +41,7 @@ Push tag:
     - docker pull $IMAGE_TAG
     - docker tag $IMAGE_TAG $IMAGE_NAME:$CI_COMMIT_REF_NAME
     - docker push $IMAGE_NAME:$CI_COMMIT_REF_NAME
+
+include:
+  - template: Security/Dependency-Scanning.gitlab-ci.yml
+
