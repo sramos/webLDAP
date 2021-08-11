@@ -4,6 +4,7 @@ MAINTAINER Santiago Ramos "sramos@sitiodistinto.net"
 # Set the base directory used in any further RUN, COPY, and ENTRYPOINT
 # commands.
 RUN apt-get update -qq && \
+    apt-get upgrade -qq && \
     apt-get install -qq -y build-essential libpq-dev nodejs && \
     rm -rf /var/lib/apt/lists/*
 
